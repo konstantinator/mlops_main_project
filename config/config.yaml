@@ -1,0 +1,28 @@
+# project 
+project_name: main_project
+#project_version: 0.0.1
+
+# task_names
+val_task: data validation
+training_task: model training
+
+# data
+#data_dir: hymenoptera_data
+dataset_id: 154c3168ba74424bba3fd9a848a00594
+
+# clearml dataset
+dataset_project: main_dataset_project
+dataset_name: main_dataset
+dateset_local_path: /app/clearml_data
+
+# model
+random_state: 42
+
+# model training
+#lr: 0.001
+#momentum: 0.9
+#num_epochs: 15
+
+# validation
+#val_acc_threshold: 0.90
+# val_loss_threshold: 0.2
