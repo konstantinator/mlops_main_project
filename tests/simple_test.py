@@ -1,6 +1,3 @@
-
-
-
 import pytest
 import os.path
 import sys
@@ -15,6 +12,7 @@ from src.training import ab
 
 def test_2_add_2():
     print("test")
+
 
 @pytest.mark.parametrize('a, b, exp_result', [(1,2,3),
                                             (2,3,5),

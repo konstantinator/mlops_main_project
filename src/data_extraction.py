@@ -1,19 +1,22 @@
 from clearml import Dataset
 from config.config import AppConfig 
 import pandas as pd 
+import clearml
+
 
 def main_actions(config: AppConfig):
-    
-    
-    id, _version  = Dataset._get_dataset_id(dataset_project=config.dataset_project, 
-                                            dataset_name=config.dataset_name)
+    id, _version  = clearml.Dataset._get_dataset_id(dataset_project=config.dataset_project,
+                                    dataset_name=config.dataset_name)
 
-    path = Dataset\
-        .get(dataset_id=id)\
-        .get_mutable_local_copy(config.dateset_local_path)
-    # breakpoint()
+    dataset = clearml.Dataset.create(dataset_project=config.dataset_project,
+                            parent_datasets=[id],
+                            dataset_name= config.dataset_name,
+                            description='my main dataset')
 
-    #pd.read_csv()
+    dataset.add_files('/app/data')
+    dataset.upload(verbose=True)
+    dataset.finalize()
+
 
 def main():
     config = AppConfig.parse_raw()
@@ -22,7 +25,3 @@ def main():
 
 if __name__=='__main__':
     main()
-
-
-
-

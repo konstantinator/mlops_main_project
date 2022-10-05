@@ -15,7 +15,7 @@ def main(config: AppConfig):
 
     path = Dataset\
         .get(dataset_id=id)\
-        .get_local_copy(config.dateset_local_path)
+        .get_local_copy()
     config.dateset_local_path = path
 
     task.connect(config)

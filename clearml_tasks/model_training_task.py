@@ -1,8 +1,8 @@
-
 from config.config import AppConfig
 from clearml import Task, TaskTypes, Dataset
 from pathlib import Path
 from src.model_training import main_actions
+
 
 def main(config: AppConfig):
     task:Task = Task.init(project_name=config.project_name,
@@ -10,15 +10,19 @@ def main(config: AppConfig):
                             task_type=TaskTypes.training)
 
     id, _version  = Dataset._get_dataset_id(dataset_project=config.dataset_project, 
-                                            dataset_name=config.dataset_name)
+                                            dataset_name=config.dataset_name_prep)
     path = Dataset\
         .get(dataset_id=id)\
-        .get_local_copy(config.dateset_local_path)
+        .get_local_copy()
+
     config.dateset_local_path = path
 
     task.connect(config)
 
-    main_actions(config=config)
+    logger = task.get_logger()
+
+    main_actions(config=config, logger=logger)
+
 
 if __name__ == "__main__":
     config = AppConfig.parse_raw()

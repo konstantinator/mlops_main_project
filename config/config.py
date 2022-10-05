@@ -11,15 +11,21 @@ class AppConfig(YamlModel):
     # clearml dataset
     dataset_project: str
     dataset_name: str
+    dataset_name_prep: str
     dateset_local_path: str
 
 
     # task_names
+    extracr_task:str
     val_task: str
+    prep_task: str
     training_task: str
 
     # model
     random_state: int
+    test_size: float
+    max_iter: int
+    num_iters: int
 
     # data
     # data_dir: str

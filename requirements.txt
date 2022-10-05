@@ -3,3 +3,4 @@ matplotlib
 pydantic_yaml
 pandas
 sklearn
+clearml-agent
