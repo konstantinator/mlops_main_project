@@ -5,6 +5,7 @@ from config.config import AppConfig
 
 
 def main(config: AppConfig):
+    
     task:Task = Task.init(project_name=config.project_name,
                             task_name=config.prep_task, 
                             task_type=TaskTypes.data_processing)
