@@ -1,6 +1,6 @@
 # MLOps IRIS CLASSIFICATION
 
-![](img/mlops_architecture.png)
+![](img/mlops_arch.png)
 
 ## ClearML
 1) [Upload dataset](clearml_tasks/data_extraction_task.py)

@@ -9,7 +9,7 @@ def main():
                          execute_immediately=True, 
                          day=1, 
                          target_project='main_project')
-    scheduler.start()
+    scheduler.start_remotely(queue='default')
 
 
 if __name__ == '__main__':
